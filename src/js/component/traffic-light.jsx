@@ -6,34 +6,27 @@ import React, { useState } from "react";
 export function TrafficLight() {
 	const [colorLight, setColor] = useState(null);
 
-	let redGlow = "";
-	let yellowGlow = "";
-	let greenGlow = "";
-
-	function fAssignedGlow(color) {
-		setColor(color);
-
-		redGlow = colorLight === "red" ? "glow" : "";
-		console.log(redGlow);
-		yellowGlow = colorLight === "yellow" ? "glow" : "";
-		console.log(yellowGlow);
-		greenGlow = colorLight === "green" ? "glow" : "";
-		console.log(greenGlow);
-	}
-
 	return (
 		<>
 			<div className="pole"></div>
 			<div className="blackBox">
 				<div
-					className={"circle red " + redGlow}
-					onClick={() => fAssignedGlow("red")}></div>
+					className={
+						"circle red " + (colorLight == "red" ? "glow" : null)
+					}
+					onClick={() => setColor("red")}></div>
 				<div
-					className={"circle yellow " + yellowGlow}
-					onClick={() => fAssignedGlow("yellow")}></div>
+					className={
+						"circle yellow " +
+						(colorLight == "yellow" ? "glow" : null)
+					}
+					onClick={() => setColor("yellow")}></div>
 				<div
-					className={"circle green " + greenGlow}
-					onClick={() => fAssignedGlow("green")}></div>
+					className={
+						"circle green " +
+						(colorLight == "green" ? "glow" : null)
+					}
+					onClick={() => setColor("green")}></div>
 			</div>
 		</>
 	);
